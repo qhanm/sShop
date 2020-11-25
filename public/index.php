@@ -3,6 +3,13 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+if(! function_exists('assets')){
+    function assets($path, $secure = null)
+    {
+        return app('url')->asset($path, $secure);
+    }
+}
+
 define('LARAVEL_START', microtime(true));
 
 /*
