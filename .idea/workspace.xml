@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b91f0f5-2b95-4e57-b346-22b2870618c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/BaseFormBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/Exceptions/AttributeNotFoundException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/Exceptions/TypeInvalidException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/FormBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/Traits/HtmlTrail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/Traits/ModelTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/Views/checkbox.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/Views/input.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/FormBuilder/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/auth/login_bk.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sShop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sShop.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/layouts/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/layouts/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/layouts/master.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/layouts/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +167,7 @@
       <workItem from="1606361860784" duration="8959000" />
       <workItem from="1606378913721" duration="1156000" />
       <workItem from="1606381427599" duration="6000" />
-      <workItem from="1606386004955" duration="1051000" />
+      <workItem from="1606386004955" duration="2429000" />
     </task>
     <servers />
   </component>
