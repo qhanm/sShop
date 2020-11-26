@@ -16,7 +16,7 @@
         </div>
         <div class="card-body pt-0">
             <div>
-                <a href="index.html">
+                <a href="#">
                     <div class="avatar-md profile-user-wid mb-4">
                         <span class="avatar-title rounded-circle bg-light">
                             <img src="{{ assets('qbackend/assets/images/logo.svg') }}" alt="" class="rounded-circle" height="34">
@@ -24,22 +24,28 @@
                     </div>
                 </a>
             </div>
+            @if($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            @endif
             <div class="p-2">
-                <form class="form-horizontal" action="index.html">
-
+                <form class="form-horizontal" action="{{ route('backend.auth.checkLogin') }}" method="post" autocomplete="off">
+                    @csrf
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                        <label for="email">Username</label>
+                        <input type="text" class="form-control parsley-error" id="email" name="email" placeholder="Enter email">
+                        <ul class="parsley-errors-list filled" id="parsley-id-19" aria-hidden="false"><li class="parsley-required">This value is required.</li></ul>
                     </div>
 
                     <div class="form-group">
-                        <label for="userpassword">Password</label>
-                        <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customControlInline">
-                        <label class="custom-control-label" for="customControlInline">Remember me</label>
+                        <input type="checkbox" class="custom-control-input" id="remember" name="remember"/>
+                        <label class="custom-control-label" for="remember">Remember me</label>
                     </div>
 
                     <div class="mt-3">
@@ -53,17 +59,17 @@
 
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
+                                <a href="javascript:void(0);" class="social-list-item bg-primary text-white border-primary">
                                     <i class="mdi mdi-facebook"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="javascript::void()" class="social-list-item bg-info text-white border-info">
+                                <a href="javascript:void(0);" class="social-list-item bg-info text-white border-info">
                                     <i class="mdi mdi-twitter"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="javascript::void()" class="social-list-item bg-danger text-white border-danger">
+                                <a href="javascript:void(0);" class="social-list-item bg-danger text-white border-danger">
                                     <i class="mdi mdi-google"></i>
                                 </a>
                             </li>
