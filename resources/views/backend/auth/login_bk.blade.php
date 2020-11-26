@@ -1,8 +1,5 @@
 @extends('backend.auth.master')
 @section('content')
-@php
-    use Libs\FormBuilder\FormBuilder;
-@endphp
     <div class="card overflow-hidden">
         <div class="bg-soft-primary">
             <div class="row">
@@ -27,24 +24,32 @@
                     </div>
                 </a>
             </div>
+            @if($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            @endif
             <div class="p-2">
-                @php
-                    echo FormBuilder::open([
-                        'id' => 'frmLogin',
-                        'action' => route('backend.auth.login'),
-                        'method' => 'POST',
-                        'class' => 'form-horizontal qqq'
-                    ]);
+                <form class="form-horizontal" action="{{ route('backend.auth.checkLogin') }}" method="post" autocomplete="off">
+                    @csrf
+                    <div class="form-group">
+                        <label for="email">Username</label>
+                        <input type="text" class="form-control parsley-error" id="email" name="email" placeholder="Enter email">
+                        <ul class="parsley-errors-list filled" id="parsley-id-19" aria-hidden="false"><li class="parsley-required">This value is required.</li></ul>
+                    </div>
 
-                    echo FormBuilder::label('email', 'Email')->qInput('email', 'email', '', ['placeholder' => 'Enter email']);
-                    echo FormBuilder::label('password', 'Password')->qInput('password', 'password', '', ['placeholder' => 'Enter password']);
-                    echo FormBuilder::label('remember', 'Remember', ['class' => 'custom-control-label'])->qInput('checkbox', 'remember', '', ['class' =>'custom-control-input']);
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                    </div>
 
-                @endphp
-
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="remember" name="remember"/>
+                        <label class="custom-control-label" for="remember">Remember me</label>
+                    </div>
 
                     <div class="mt-3">
-                        {!! FormBuilder::button('submit', 'Login', ['class' => 'btn btn-primary btn-block waves-effect waves-light']) !!}
+                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Log In</button>
                     </div>
 
 
@@ -74,7 +79,7 @@
                     <div class="mt-4 text-center">
                         <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
                     </div>
-                {!! FormBuilder::close() !!}
+                </form>
             </div>
 
         </div>

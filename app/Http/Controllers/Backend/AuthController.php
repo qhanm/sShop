@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 use App\Components\BackendController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Libs\FormBuilder\BaseFormBuilder;
 
 class AuthController extends BackendController
 {
@@ -23,6 +24,6 @@ class AuthController extends BackendController
         $validator = Validator::make([], []);
         $validator->errors()->add('email', 'Email or password invalid');
 
-        return redirect()->route('backend.auth.login')->withErrors($validator);
+        return redirect()->route('backend.auth.login')->withInput()->withErrors($validator);
     }
 }
