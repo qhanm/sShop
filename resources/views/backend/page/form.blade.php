@@ -25,7 +25,13 @@
 <div class="col-md-3">
     <div class="card">
         <div class="card-body">
-            hhhhhh
+            <div class="form-group">
+                {!! \Libs\FormBuilder\FormBuilder::button('button', 'Save drafts', ['class' => 'btn btn-outline-dark waves-effect waves-light']) !!}
+                {!! \Libs\FormBuilder\FormBuilder::button('button', 'Preview', ['class' => 'btn btn-outline-dark waves-effect waves-light float-right']) !!}
+            </div>
+            <div class="form-group">
+                <lable>Status</lable> Drafts
+            </div>
         </div>
     </div>
 </div>
