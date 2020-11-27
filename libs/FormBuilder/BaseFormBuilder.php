@@ -31,7 +31,8 @@ abstract class BaseFormBuilder
     protected $session;
 
     protected $type = ['button', 'checkbox', 'color', 'date', 'datetime-local', 'email', 'file', 'hidden', 'image', 'month',
-        'number', 'password', 'radio', 'range', 'reset', 'search', 'submit', 'tel', 'text', 'time', 'url', 'url', 'week'
+        'number', 'password', 'radio', 'range', 'reset', 'search', 'submit', 'tel', 'text', 'time', 'url', 'url', 'week',
+        'textarea'
     ];
 
     public static function  __callStatic($method, $parameters)

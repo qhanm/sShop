@@ -19,9 +19,9 @@ class FormBuilder extends BaseFormBuilder
         return $this->render($this->label, $input, $type);
     }
 
-    protected function activeInput(string $type, Model $model, string $attribute, array $options = [])
+    protected function activeInput(string $type,Model $model, string $attribute, array $options = [])
     {
         $this->hasAttribute($model, $attribute);
-        return $this->input($type, $attribute, $model->{$attribute}, $options);
+        return $this->input($type, $attribute, $model->{$attribute} == null ? '' : $model->{$attribute}, $options);
     }
 }
