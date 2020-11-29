@@ -3,7 +3,30 @@
 @php
     use Libs\FormBuilder\FormBuilder;
 @endphp
-    <div class="card overflow-hidden">
+<style>
+    #login-page{
+        position: relative;
+    }
+
+    #loader {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: lightblue;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in;
+        z-index: 9999;
+        opacity: .5;
+    }
+</style>
+    <div class="card overflow-hidden" id="login-page">
+        <div id="loader">
+            <div class="spinner-border text-primary m-1" style="z-index: 9999999"></div>
+        </div>
         <div class="bg-soft-primary">
             <div class="row">
                 <div class="col-7">

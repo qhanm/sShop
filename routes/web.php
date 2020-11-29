@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('backend.layouts.master');
+    return view('welcome');
+});
+
+Route::get('/test1', function (){
+    return view('test');
 });
 
 Route::get('reboot',function(){
