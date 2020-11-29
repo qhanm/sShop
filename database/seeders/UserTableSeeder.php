@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -20,5 +21,7 @@ class UserTableSeeder extends Seeder
         $userModel->email = 'qhnam.67@gmail.com';
         $userModel->password = Hash::make('123456');
         $userModel->save();
+
+
     }
 }

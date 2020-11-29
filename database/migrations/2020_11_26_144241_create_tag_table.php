@@ -16,11 +16,11 @@ class CreateTagTable extends Migration
         Schema::create('tag', function (Blueprint $table) {
             $table->id();
             $table->string('name', 150);
-            $table->bigInteger('slug_id')->unsigned();
+            $table->bigInteger('slug', 150)->nullable(false);
             $table->string('description', 300);
             $table->timestamps();
 
-            $table->foreign('slug_id')->references('id')->on('slug');
+            //$table->foreign('slug_id')->references('id')->on('slug');
         });
     }
 

@@ -16,7 +16,7 @@ class CreatePageTable extends Migration
         Schema::create('page', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255)->nullable(false);
-            $table->bigInteger('slug_id')->unsigned();
+            $table->string('slug', 150)->nullable(false);
             $table->string('content')->nullable(true);
             $table->string('thumbnail', 255);
             $table->string('status')->default('drafts');

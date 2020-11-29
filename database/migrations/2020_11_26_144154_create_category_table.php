@@ -16,12 +16,13 @@ class CreateCategoryTable extends Migration
         Schema::create('category', function (Blueprint $table) {
             $table->id();
             $table->string('name', 150);
-            $table->bigInteger('slug_id')->unsigned();
-            $table->integer('paren_id')->default(0);
+            $table->string('slug', 150)->nullable(false);
+            $table->integer('parent_id')->default(0);
             $table->string('description', 300);
+            $table->string('type', 50);
             $table->timestamps();
 
-            $table->foreign('slug_id')->references('id')->on('slug');
+            //$table->foreign('slug_id')->references('id')->on('slug');
         });
     }
 

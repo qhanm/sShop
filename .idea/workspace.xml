@@ -20,8 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b91f0f5-2b95-4e57-b346-22b2870618c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/category/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/category/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/page/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/page/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_25_081109_create_page_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_25_081109_create_page_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_26_144154_create_category_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_26_144154_create_category_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_26_144241_create_tag_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_26_144241_create_tag_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/FormBuilder/FormBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/libs/FormBuilder/FormBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/qBackend.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/qBackend.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +193,7 @@
       <workItem from="1606386004955" duration="2429000" />
       <workItem from="1606398644523" duration="1244000" />
       <workItem from="1606467770840" duration="6145000" />
+      <workItem from="1606556768582" duration="7551000" />
     </task>
     <servers />
   </component>
