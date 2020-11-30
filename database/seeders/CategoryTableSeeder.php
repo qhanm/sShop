@@ -17,7 +17,7 @@ class CategoryTableSeeder extends Seeder
         $categoryModelPage = new Category();
         $categoryModelPage->name = 'Uncategorized';
         $categoryModelPage->parent_id = 0;
-        $categoryModelPage->slug_id = 'uncategorized';
+        $categoryModelPage->slug = 'uncategorized';
         $categoryModelPage->description = '';
         $categoryModelPage->type = Category::TYPE_PAGE;
 
@@ -26,7 +26,7 @@ class CategoryTableSeeder extends Seeder
         $categoryModelPost = new Category();
         $categoryModelPost->name = 'Uncategorized';
         $categoryModelPost->parent_id = 0;
-        $categoryModelPost->slug_id = 'uncategorized';
+        $categoryModelPost->slug = 'uncategorized';
         $categoryModelPost->description = '';
         $categoryModelPost->type = Category::TYPE_POST;
 
