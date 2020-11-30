@@ -66024,6 +66024,24 @@ if (document.getElementById('example')) {
 
 /***/ }),
 
+/***/ "./resources/js/backend/Constant.js":
+/*!******************************************!*\
+  !*** ./resources/js/backend/Constant.js ***!
+  \******************************************/
+/*! exports provided: API_BASE_URL, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_BASE_URL", function() { return API_BASE_URL; });
+var API_BASE_URL = 'http://www.medical-care.dragonflyteam.com/api/v1/';
+var Constant = {
+  API_BASE_URL: API_BASE_URL
+};
+/* harmony default export */ __webpack_exports__["default"] = (Constant);
+
+/***/ }),
+
 /***/ "./resources/js/backend/components/auth/Login.js":
 /*!*******************************************************!*\
   !*** ./resources/js/backend/components/auth/Login.js ***!
@@ -66043,6 +66061,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var querystring__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/index.js");
 /* harmony import */ var querystring__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(querystring__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _layouts_Loadding__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../layouts/Loadding */ "./resources/js/backend/layouts/Loadding.js");
+/* harmony import */ var _services_auth_UserService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/auth/UserService */ "./resources/js/backend/services/auth/UserService.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -66063,6 +66082,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Login() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
@@ -66074,6 +66094,18 @@ function Login() {
       password = _useState4[0],
       setPassword = _useState4[1];
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    _services_auth_UserService__WEBPACK_IMPORTED_MODULE_7__["default"].login({
+      email: 'nam.quach@dragonflyteam.com',
+      password: '123456'
+    }).then(function (result) {
+      console.log('result: ' + result);
+    })["catch"](function (error) {
+      console.log(error.response);
+      console.log(error.response.data);
+    });
+    return function () {};
+  }, []);
   console.log(querystring__WEBPACK_IMPORTED_MODULE_5___default.a.stringify({
     limit: 100,
     page: 20
@@ -66299,6 +66331,87 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/backend/services/auth/UserService.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/backend/services/auth/UserService.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../axiosClient */ "./resources/js/backend/services/axiosClient.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var UserService = /*#__PURE__*/function () {
+  function UserService() {
+    _classCallCheck(this, UserService);
+  }
+
+  _createClass(UserService, [{
+    key: "login",
+    value: function login(params) {
+      var url = 'auth/login';
+      return _axiosClient__WEBPACK_IMPORTED_MODULE_0__["default"].post(url, {
+        params: params
+      });
+    }
+  }]);
+
+  return UserService;
+}();
+
+var userService = new UserService();
+/* harmony default export */ __webpack_exports__["default"] = (userService);
+
+/***/ }),
+
+/***/ "./resources/js/backend/services/axiosClient.js":
+/*!******************************************************!*\
+  !*** ./resources/js/backend/services/axiosClient.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var querystring__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/index.js");
+/* harmony import */ var querystring__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(querystring__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Constant */ "./resources/js/backend/Constant.js");
+
+
+
+var axiosClient = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+  baseURL: _Constant__WEBPACK_IMPORTED_MODULE_2__["default"].API_BASE_URL,
+  timeout: 30000,
+  paramsSerializer: function paramsSerializer(params) {
+    return querystring__WEBPACK_IMPORTED_MODULE_1___default.a.stringify(params);
+  }
+});
+axios__WEBPACK_IMPORTED_MODULE_0___default.a.interceptors.request.use(function (config) {
+  var backgroundCall = config.data && config.data.background === true;
+
+  if (!backgroundCall) {// show loading
+  }
+
+  var headers = {
+    'content-type': 'application/json'
+  };
+  config.headers.common = headers;
+  return config;
+});
+/* harmony default export */ __webpack_exports__["default"] = (axiosClient);
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -66403,8 +66516,8 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Learning\xampp_new\htdocs\sShop\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Learning\xampp_new\htdocs\sShop\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\sShop\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\sShop\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

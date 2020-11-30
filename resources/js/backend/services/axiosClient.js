@@ -1,6 +1,6 @@
 import axios from 'axios';
 import queryString from 'querystring';
-import Constant from "../../../views/backend/Constant";
+import Constant from "../Constant";
 
 const axiosClient = axios.create({
     baseURL: Constant.API_BASE_URL,

@@ -2,7 +2,7 @@ import axiosClient from "../axiosClient";
 
 class UserService
 {
-    login = (params) => {
+    login(params) {
         const url = 'auth/login';
         return axiosClient.post(url, { params });
     }

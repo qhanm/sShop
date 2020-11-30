@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from "../../layouts/Input";
 import Checkbox from "../../layouts/Checkbox";
 import ReactDOM from "react-dom";
@@ -6,10 +6,24 @@ import ButtonBlock from "../../layouts/ButtonBlock";
 import querystring from 'querystring';
 import Loading from "../../layouts/Loadding";
 
+import userService from "../../services/auth/UserService";
+
 function Login()
 {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    useEffect(() => {
+        userService.login({email: 'nam.quach@dragonflyteam.com', password: '123456'}).then((result) => {
+            console.log('result: ' + result);
+        }).catch((error) => {
+            console.log(error.response);
+            console.log(error.response.data);
+        })
+
+        return () => {
+
+        }
+    }, [])
 
     console.log(querystring.stringify({limit: 100, page: 20}));
     return (
