@@ -66095,24 +66095,27 @@ function Login() {
       setPassword = _useState4[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    _services_auth_UserService__WEBPACK_IMPORTED_MODULE_7__["default"].login({
-      email: 'nam.quach@dragonflyteam.com',
-      password: '123456'
-    }).then(function (result) {
-      console.log('result: ' + result);
-    })["catch"](function (error) {
-      console.log(error.response);
-      console.log(error.response.data);
-    });
+    // userService.login({email: 'nam.quach@dragonflyteam.com', password: '123456'}).then((result) => {
+    //     console.log('result: ' + result);
+    // }).catch((error) => {
+    //     console.log(error.response);
+    //     console.log(error.response.data);
+    // })
     return function () {};
   }, []);
+
+  var onLogin = function onLogin(event) {
+    console.log('call');
+    console.log(event);
+  };
+
   console.log(querystring__WEBPACK_IMPORTED_MODULE_5___default.a.stringify({
     limit: 100,
     page: 20
   }));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card overflow-hidden parent-loading"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Loadding__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "bg-soft-primary"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
@@ -66141,11 +66144,12 @@ function Login() {
     alt: "",
     className: "rounded-circle",
     height: "34"
-  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))))), "qhnam.67", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "p-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "form-horizontal",
-    autoComplete: "on"
+    autoComplete: "on",
+    onSubmit: onLogin
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Input__WEBPACK_IMPORTED_MODULE_1__["default"], {
     label: "Email",
     name: "username",
@@ -66170,7 +66174,7 @@ function Login() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mt-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_ButtonBlock__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    type: "button",
+    type: "submit",
     className: "btn-primary",
     name: "login"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66516,8 +66520,8 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\sShop\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\sShop\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Learning\xampp_new\htdocs\sShop\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Learning\xampp_new\htdocs\sShop\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -9,7 +9,6 @@ class AuthController extends ApiController
 {
     public function login(Request $request)
     {
-        $request->headers->set('Accept', 'application/json');
         $request = $request->only(['email', 'password']);
 
         if(\Auth::attempt($request))

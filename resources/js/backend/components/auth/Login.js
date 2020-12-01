@@ -13,22 +13,27 @@ function Login()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     useEffect(() => {
-        userService.login({email: 'nam.quach@dragonflyteam.com', password: '123456'}).then((result) => {
-            console.log('result: ' + result);
-        }).catch((error) => {
-            console.log(error.response);
-            console.log(error.response.data);
-        })
+        // userService.login({email: 'nam.quach@dragonflyteam.com', password: '123456'}).then((result) => {
+        //     console.log('result: ' + result);
+        // }).catch((error) => {
+        //     console.log(error.response);
+        //     console.log(error.response.data);
+        // })
 
         return () => {
 
         }
     }, [])
 
+    let onLogin = (event) => {
+        console.log('call');
+        console.log(event)
+    }
+
     console.log(querystring.stringify({limit: 100, page: 20}));
     return (
         <div className="card overflow-hidden parent-loading">
-            <Loading />
+            {/*<Loading />*/}
             <div className="bg-soft-primary">
                 <div className="row">
                     <div className="col-7">
@@ -52,13 +57,14 @@ function Login()
                         </div>
                     </a>
                 </div>
+                qhnam.67
                 <div className="p-2">
-                    <form className="form-horizontal" autoComplete="on">
+                    <form className="form-horizontal" autoComplete="on" onSubmit={ onLogin }>
                         <Input label="Email" name="username" type="email" autoComplete="off" value={ email } onChange={ e => setEmail(e.target.value)}/>
                         <Input label="Password" name="password" type="password" value={ email } onChange={ e => setPassword(e.target.value) }/>
                         <Checkbox label="Remember me"  htmlFor="remember" id="remember" />
                         <div className="mt-3">
-                            <ButtonBlock type="button" className="btn-primary" name={"login"} />
+                            <ButtonBlock type="submit" className="btn-primary" name={"login"} />
                         </div>
                         <div className="mt-4 text-center">
                             <a href="auth-recoverpw.html" className="text-muted">

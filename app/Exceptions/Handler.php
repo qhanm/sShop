@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
                 $errors = [$e->errors()];
             }else{
                 echo '<pre>';
-                print_r($e);
+                print_r($e->getMessage());
                 die;
             }
 
