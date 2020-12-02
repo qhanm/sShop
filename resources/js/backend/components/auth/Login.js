@@ -5,35 +5,40 @@ import ReactDOM from "react-dom";
 import ButtonBlock from "../../layouts/ButtonBlock";
 import querystring from 'querystring';
 import Loading from "../../layouts/Loadding";
-
 import userService from "../../services/auth/UserService";
+import PropTypes from 'prop-types';
+import {getError} from "../../helpers/ErrorHelper";
 
 function Login()
 {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState([]);
+    
     useEffect(() => {
-        // userService.login({email: 'nam.quach@dragonflyteam.com', password: '123456'}).then((result) => {
-        //     console.log('result: ' + result);
-        // }).catch((error) => {
-        //     console.log(error.response);
-        //     console.log(error.response.data);
-        // })
-
-        return () => {
-
-        }
-    }, [])
+        console.log(error);
+    }, [error])
 
     let onLogin = (event) => {
-        console.log('call');
-        console.log(event)
-    }
+        event.preventDefault();
 
-    console.log(querystring.stringify({limit: 100, page: 20}));
+        setLoading(true);
+
+        userService.login({email: email, password: password}).then((result) => {
+            setLoading(false);
+        }).catch((er) => {
+            setError(er.response.data.errors);
+            setLoading(false);
+        })
+    }
+   
+
     return (
-        <div className="card overflow-hidden parent-loading">
-            {/*<Loading />*/}
+        <div className={"card overflow-hidden sweet-loading " + (loading === true ? "parent-loading" : "")}>
+            {
+                loading === true ? <Loading /> : null
+            }
             <div className="bg-soft-primary">
                 <div className="row">
                     <div className="col-7">
@@ -49,7 +54,7 @@ function Login()
             </div>
             <div className="card-body pt-0">
                 <div>
-                    <a href="index.html">
+                    <a href="#">
                         <div className="avatar-md profile-user-wid mb-4">
                             <span className="avatar-title rounded-circle bg-light">
                                 <img src={ window.basePath + "qbackend/assets/images/logo.svg" } alt="" className="rounded-circle" height="34" />
@@ -57,18 +62,37 @@ function Login()
                         </div>
                     </a>
                 </div>
-                qhnam.67
                 <div className="p-2">
                     <form className="form-horizontal" autoComplete="on" onSubmit={ onLogin }>
-                        <Input label="Email" name="username" type="email" autoComplete="off" value={ email } onChange={ e => setEmail(e.target.value)}/>
-                        <Input label="Password" name="password" type="password" value={ email } onChange={ e => setPassword(e.target.value) }/>
-                        <Checkbox label="Remember me"  htmlFor="remember" id="remember" />
+                        <Input
+                            label="Email"
+                            name="email"
+                            type="email"
+                            autoComplete="off"
+                            value={ email }
+                            onChange={ e => setEmail(e.target.value)}
+                            error={ getError(error, 'email') }
+                        />
+                        <Input
+                            label="Password"
+                            name="password"
+                            type="password"
+                            value={ email }
+                            onChange={ e => setPassword(e.target.value) }
+                            error={ getError(error, 'password') }
+                        />
+                        <Checkbox
+                            label="Remember me"
+                            htmlFor="remember"
+                            id="remember"
+                        />
                         <div className="mt-3">
-                            <ButtonBlock type="submit" className="btn-primary" name={"login"} />
+                            <ButtonBlock type="submit" className="btn-primary" name={"Login"} />
                         </div>
                         <div className="mt-4 text-center">
-                            <a href="auth-recoverpw.html" className="text-muted">
-                                <i className="mdi mdi-lock mr-1"></i> Forgot your password?
+                            <a href="#" className="text-muted">
+                                <i className="mdi mdi-lock mr-1">
+                                </i> Forgot your password?
                             </a>
                         </div>
                     </form>
@@ -79,8 +103,12 @@ function Login()
     );
 }
 
-export default Login;
+Login.propTypes = {
+    email: PropTypes.string,
+    password: PropTypes.string,
+}
 
+export default Login;
 
 if (document.getElementById(window.qhnPrefix + 'backend_login')) {
     ReactDOM.render(<Login />, document.getElementById(window.qhnPrefix + 'backend_login'));

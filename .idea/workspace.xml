@@ -20,14 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b91f0f5-2b95-4e57-b346-22b2870618c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/backend/helpers/ErrorHelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/backend/Constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/Constant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/backend/components/auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/components/auth/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/models/Auth/LoginModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/models/Auth/LoginModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/backend/layouts/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/layouts/Input.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +173,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../warehouse_brand_version" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -219,6 +220,7 @@
       <workItem from="1606706662575" duration="2526000" />
       <workItem from="1606828165895" duration="296000" />
       <workItem from="1606832269822" duration="734000" />
+      <workItem from="1606893469038" duration="4197000" />
     </task>
     <servers />
   </component>

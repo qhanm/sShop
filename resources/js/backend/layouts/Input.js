@@ -2,23 +2,24 @@ import React from 'react';
 
 function Input(props)
 {
+    const { label, type, className, placeholder, value, onChange, autoComplete, error } = props;
      return (
          <div className="form-group">
-             <label>{ props.label }</label>
+             <label>{ label }</label>
              <div>
                  <input
-                     name={ props.name }
-                     type={ props.type }
-                     className={"form-control " + (props.className !== undefined ? props.className : '') }
-                     placeholder={props.placeholder}
-                     value={ props.value }
-                     onChange={ props.onChange }
-                     autoComplete={ props.autoComplete }
+                     name={ name }
+                     type={ type }
+                     className={"form-control " + (className !== undefined ? className : '') }
+                     placeholder={placeholder}
+                     value={ value }
+                     onChange={ onChange }
+                     autoComplete={ autoComplete }
                  />
                  {
-                     props.isError ? (
+                     error !== null ? (
                          <ul className="parsley-errors-list filled" id="parsley-id-27" aria-hidden="false">
-                             <li className="parsley-required">This value is required.</li>
+                             <li className="parsley-required">{ error }</li>
                          </ul>
                      ) : null
                  }

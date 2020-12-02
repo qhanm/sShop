@@ -42,6 +42,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
+
         if(Str::of(ltrim($request->getPathInfo(), '/'))->is('api*'))
         {
             $status = 400;
