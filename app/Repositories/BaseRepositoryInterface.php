@@ -9,9 +9,9 @@ interface BaseRepositoryInterface
 
 	public function update($id, array $data, array $joinWith = []);
 
-    public function store(array $data, array $joinWith = []);
+    public function create(array $data, array $joinWith = []);
 
     public function delete($id); // soft delete
 
     public function destroy($id);
-} 
+}

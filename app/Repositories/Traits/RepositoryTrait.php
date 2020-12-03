@@ -1,0 +1,35 @@
+<?php
+namespace App\Repositories\Traits;
+
+use Illuminate\Support\Str;
+
+trait RepositoryTrait
+{
+
+    /**
+     * @param array $data
+     * @param string $key
+     * @return array
+     */
+    public function parseToArray(array $data, string $key)
+    {
+        return is_array($data[$key]) ? $data[$key] : [$data[$key]];
+    }
+
+    /**
+     * @param string $attribute
+     * @return array
+     */
+    public function detectSortOrder(string $attribute)
+    {
+        $sortOrder = 'asc';
+        if(Str::is('-*', $attribute)){
+            $sortOrder = 'desc';
+            $attribute = Str::substr($attribute, 2, strlen($attribute));
+        }
+        return [
+            'sortOrder' => $sortOrder,
+            'attribute' => $attribute,
+        ];
+    }
+}

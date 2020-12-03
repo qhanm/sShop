@@ -20,14 +20,6 @@ class Category extends BackendModel
 
     protected $table = 'category';
 
-    protected $attributes = [
-        'name' => '', 'slug' => 0, 'parent_id' => 0, 'description' => '', 'type' => self::TYPE_POST,
-    ];
-
-    protected $visible = [
-        'name', 'slug', 'parent_id', 'description', 'type',
-    ];
-
     protected $fillable = [
         'name', 'slug', 'parent_id', 'description', 'type',
     ];

@@ -1,7 +1,8 @@
-<?php 
-namespace Ap\Components;
+<?php
+namespace App\Components;
+use Illuminate\Database\Eloquent\Model as BaseModel;
 
-class Model
+class Model extends BaseModel
 {
-	
+
 }
