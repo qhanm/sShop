@@ -16,6 +16,7 @@
     <!-- Icons Css -->
     <link href="{{ assets('qbackend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <!-- App Css-->
+    <link href="{{ assets('qbackend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ assets('qbackend/assets/css/app.min.css') }}"  rel="stylesheet" type="text/css">
 
 </head>
@@ -108,8 +109,17 @@
 <script src="{{ assets('qbackend/assets/libs/metismenu/metisMenu.min.js') }}"></script>
 <script src="{{ assets('qbackend/assets/libs/simplebar/simplebar.min.js') }}"></script>
 <script src="{{ assets('qbackend/assets/libs/node-waves/waves.min.js') }}"></script>
-@yield('script-footer-end')
-<script src="{{ assets('qbackend/assets/js/app.js') }}"></script>
+{{--<script src="{{ assets('qbackend/assets/libs/select2/js/select2.min.js') }}"></script>--}}
 
+{{--<script src="{{ assets('qbackend/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>--}}
+{{--<script src="{{ assets('qbackend/assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>--}}
+{{--<script src="{{ assets('qbackend/assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>--}}
+{{--<script src="{{ assets('qbackend/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>--}}
+{{--<script src="{{ assets('qbackend/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>--}}
+{{--<script src="{{ assets('qbackend/assets/libs/chenfengyuan/datepicker/datepicker.min.js') }}"></script>--}}
+
+{{--<script src="{{ assets('qbackend/assets/js/pages/form-advanced.init.js') }}"></script>--}}
+<script src="{{ assets('qbackend/assets/js/app.js') }}"></script>
+@yield('script-footer-end')
 </body>
 </html>

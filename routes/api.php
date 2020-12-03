@@ -19,6 +19,8 @@ Route::middleware(['api.response'])->group(function (){
         Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
         Route::post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
     });
+
+    Route::resource('category', \App\Http\Controllers\Api\CategoryController::class);
 });
 
 Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);

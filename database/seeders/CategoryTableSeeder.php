@@ -14,22 +14,17 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        $categoryModelPage = new Category();
-        $categoryModelPage->name = 'Uncategorized';
-        $categoryModelPage->parent_id = 0;
-        $categoryModelPage->slug = 'uncategorized';
-        $categoryModelPage->description = '';
-        $categoryModelPage->type = Category::TYPE_PAGE;
+        $faker = \Faker\Factory::create();
 
-        $categoryModelPage->save();
-
-        $categoryModelPost = new Category();
-        $categoryModelPost->name = 'Uncategorized';
-        $categoryModelPost->parent_id = 0;
-        $categoryModelPost->slug = 'uncategorized';
-        $categoryModelPost->description = '';
-        $categoryModelPost->type = Category::TYPE_POST;
-
-        $categoryModelPost->save();
+        for ($i = 0; $i <= 100; $i++)
+        {
+            \DB::table('category')->insert([
+                'name' => $faker->name,
+                'slug' => $faker->slug,
+                'parent_id' => 0,
+                'description' => '',
+                'type' => 'post',
+            ]);
+        }
     }
 }

@@ -21,6 +21,14 @@ if(document.getElementById(window.qhnPrefix + 'backend_login')){
     require('./backend/components/auth/Login');
 }
 
+if(document.getElementById(window.qhnPrefix + 'backend_category_form')){
+    require('./backend/components/category/Form');
+}
+
+if(document.getElementById(window.qhnPrefix + 'backend_category_list')){
+    require('./backend/components/category/List');
+}
+
 if (document.getElementById('example')) {
     require('./components/Example');
 }

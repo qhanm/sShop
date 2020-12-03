@@ -24,9 +24,9 @@
     }
 </style>
     <div class="card overflow-hidden" id="login-page">
-        <div id="loader">
+{{--         <div id="loader">
             <div class="spinner-border text-primary m-1" style="z-index: 9999999"></div>
-        </div>
+        </div> --}}
         <div class="bg-soft-primary">
             <div class="row">
                 <div class="col-7">
@@ -59,8 +59,8 @@
                         'class' => 'form-horizontal qqq'
                     ]);
 
-                    echo FormBuilder::label('email', 'Email')->qInput('email', 'email', '', ['placeholder' => 'Enter email']);
-                    echo FormBuilder::label('password', 'Password')->qInput('password', 'password', '', ['placeholder' => 'Enter password']);
+                    echo FormBuilder::label('email', 'Email')->qInput('email', 'email', 'qhnam.67@gmail.com', ['placeholder' => 'Enter email']);
+                    echo FormBuilder::label('password', 'Password')->qInput('password', 'password', '123456', ['placeholder' => 'Enter password']);
                     echo FormBuilder::label('remember', 'Remember', ['class' => 'custom-control-label'])->qInput('checkbox', 'remember', '', ['class' =>'custom-control-input']);
 
                 @endphp

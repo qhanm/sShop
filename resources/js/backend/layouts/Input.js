@@ -1,8 +1,9 @@
 import React from 'react';
-
 function Input(props)
 {
     const { label, type, className, placeholder, value, onChange, autoComplete, error } = props;
+
+    //console.log(error);
      return (
          <div className="form-group">
              <label>{ label }</label>

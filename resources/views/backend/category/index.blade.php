@@ -10,21 +10,18 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Create New Categories</h4>
-
-                    {!! \Libs\FormBuilder\FormBuilder::label('name', 'Name')->qActiveInput('text', $model, 'name') !!}
-                    {!! \Libs\FormBuilder\FormBuilder::label('slug', 'Slug')->qActiveInput('text', $model, 'slug_id') !!}
-                </div>
-            </div>
+            <div id="{{ config('backend.reactjs.prefixElement') }}backend_category_form"></div>
         </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+                    <div id="{{ config('backend.reactjs.prefixElement') }}backend_category_list"></div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('script-footer-end')
+<script src="{{ asset('js/app.js') }}"></script>
 @endsection

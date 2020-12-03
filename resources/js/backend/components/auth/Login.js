@@ -3,7 +3,6 @@ import Input from "../../layouts/Input";
 import Checkbox from "../../layouts/Checkbox";
 import ReactDOM from "react-dom";
 import ButtonBlock from "../../layouts/ButtonBlock";
-import querystring from 'querystring';
 import Loading from "../../layouts/Loadding";
 import userService from "../../services/auth/UserService";
 import PropTypes from 'prop-types';
@@ -11,28 +10,31 @@ import {getError} from "../../helpers/ErrorHelper";
 
 function Login()
 {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('qhnam.67@gmail.com');
+    const [password, setPassword] = useState('123456');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState([]);
-    
-    useEffect(() => {
-        console.log(error);
-    }, [error])
 
     let onLogin = (event) => {
         event.preventDefault();
 
         setLoading(true);
 
-        userService.login({email: email, password: password}).then((result) => {
+        userService.login({email: email, password: password})
+        .then((result) => {
             setLoading(false);
+            console.log(result.data);
         }).catch((er) => {
             setError(er.response.data.errors);
             setLoading(false);
+
         })
     }
-   
+
+
+    useEffect(() => {
+        //console.log(formError.email);
+    }, [])
 
     return (
         <div className={"card overflow-hidden sweet-loading " + (loading === true ? "parent-loading" : "")}>
@@ -71,15 +73,16 @@ function Login()
                             autoComplete="off"
                             value={ email }
                             onChange={ e => setEmail(e.target.value)}
-                            error={ getError(error, 'email') }
+                            error={ getError(error, "email") }
                         />
+
                         <Input
                             label="Password"
                             name="password"
                             type="password"
-                            value={ email }
+                            value={ password }
                             onChange={ e => setPassword(e.target.value) }
-                            error={ getError(error, 'password') }
+                            error={ getError(error, "password") }
                         />
                         <Checkbox
                             label="Remember me"
