@@ -60,7 +60,6 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
                         $_query->orWhere($attribute, 'LIKE', '%' . $searchValue . '%');
                     }
                 });
-
             }
         }
 
@@ -75,14 +74,28 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
                 $query->orderBy($sortOrder['attribute'], $sortOrder['sortOrder']);
             }
         }
-        $query->forPage(1, 20);
 
-        return $this->resource::collection($query->get());
+        $perPage = 10;
+        if(isset($params['per-page']) && $params['per-page'] > 0){
+            $perPage = $params['per-page'];
+        }
+
+        $currentPage = 1;
+        if(isset($params['page']) && $params['per-page'] > 0){
+            $currentPage = $params['page'];
+        }
+
+        $items = $query->paginate($perPage);
+        $totalCount = $query->pluck($this->model->getTable() . '.' . $this->model->getKeyName())->count();
+
+        new LengthAwarePaginator($items, $totalCount, $perPage, $currentPage);
+
+        return $this->resource::collection($items);
 	}
 
 	public function getOne($id, array $joinWith = [])
 	{
-
+        return $this->findOrFail($id);
 	}
 
 	public function update($id, array $data, array $joinWith = [])
@@ -104,4 +117,9 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
 	{
 
 	}
+
+	private function findOrFail($id)
+    {
+        return $this->model::query()->findOrFail($id);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Components\ApiController;
 use App\Models\Category;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use Illuminate\Http\Request;
 
 class CategoryController extends ApiController
 {
@@ -16,8 +17,13 @@ class CategoryController extends ApiController
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->categoryRepository->getAll();
+        return $this->categoryRepository->getAll([], [], $request->toArray());
+    }
+
+    public function show($id)
+    {
+        return $this->categoryRepository->getOne($id);
     }
 }

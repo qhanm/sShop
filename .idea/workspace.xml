@@ -20,18 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b91f0f5-2b95-4e57-b346-22b2870618c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Eloquent/CategoryRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/CategoryRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Resources/CategoryResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Traits/RepositoryTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Components/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Components/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepositoryAbtract.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepositoryAbstract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepositoryAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepositoryAbstract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Resources/CategoryResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Resources/CategoryResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,9 +278,10 @@
     </state>
     <state x="1982" y="240" key="run.anything.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1606650498915" />
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606473419355" />
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606358872362">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607003119770">
+      <screen x="1366" y="0" width="1920" height="1040" />
     </state>
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1607003119770" />
     <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606358872362" />
   </component>
 </project>
