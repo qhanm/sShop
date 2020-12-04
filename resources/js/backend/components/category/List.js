@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import DataTable from "react-data-table-component";
+import React, { useEffect, useState, useMemo } from 'react';
 import ReactDOM from "react-dom";
-
-import Form from "./Form";
-import Input from "../../layouts/Input";
-import {getError} from "../../helpers/ErrorHelper";
+import DataTable from '../DataTable/DataTable';
 import categoryService from "../../services/CategoryService";
+import SearchInput from "../DataTable/SearchInput";
+import BulkAction from "../DataTable/BulkAction";
 
-const data = [{ id: 1, title: 'Conan the Barbarian', year: '1982' }];
 const columns = [
     {
         name: 'Name',
@@ -29,37 +26,23 @@ const columns = [
 
 function List()
 {
-    const [category, setCategory] = useState([]);
-    function getSubHeaderComponent() {
-        return (
-            <div>
-                <div className="input-group">
-                    <input type="text" className="form-control" />
-                    <div className="input-group-append">
-                        <span className="input-group-text">
-                            <i className="bx bx-search-alt-2"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
-    useEffect(() => {
-        categoryService.getAll().then((result) => {
-            setCategory(result.data);
-        }).catch((error) => {
-            console.log(error);
-        })
-    }, [])
+    function subHeaderComponent() {
+        return (
+            <BulkAction key={1}/>
+        )
+    }
 
     return(
         <DataTable
-            title="CategoryService list"
+            title="Category List"
             columns={columns}
-            data={category}
-            actions={ getSubHeaderComponent() }
-
+            sortServer={true}
+            selectableRows={true}
+            apiService={ categoryService }
+            sortDefault={ {attribute: 'name'} }
+            isSearch={true}
+            customHeaderComponent={ subHeaderComponent() }
         />
     )
 }

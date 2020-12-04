@@ -68,20 +68,22 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
             $arrSort = $this->parseToArray($options, 'sort');
 
             $sortAttribute = isset($params['sort']) ? $params['sort'] : '';
-            if(!empty($searchValue) && in_array($sortAttribute, $arrSort))
+            $sortOrder = $this->detectSortOrder($sortAttribute);
+
+            if(!empty($sortAttribute) && in_array($sortOrder['attribute'], $arrSort))
             {
-                $sortOrder = $this->detectSortOrder($sortAttribute);
+
                 $query->orderBy($sortOrder['attribute'], $sortOrder['sortOrder']);
             }
         }
 
         $perPage = 10;
-        if(isset($params['per-page']) && $params['per-page'] > 0){
-            $perPage = $params['per-page'];
+        if(isset($params['per_page']) && $params['per_page'] > 0){
+            $perPage = $params['per_page'];
         }
 
         $currentPage = 1;
-        if(isset($params['page']) && $params['per-page'] > 0){
+        if(isset($params['page']) && $params['page'] > 0){
             $currentPage = $params['page'];
         }
 

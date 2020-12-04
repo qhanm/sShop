@@ -16,3 +16,16 @@
     z-index: 9999;
     opacity: .5;
 }
+
+
+.qhn-select2-rjs{
+    width: 250px;
+}
+
+.qhn-select2-bulk-action>div{
+    width: 120px;
+}
+
+.qhn-select2-bulk-action>div>div{
+    border-radius: 0;
+}

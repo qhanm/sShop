@@ -18,6 +18,7 @@
     <!-- App Css-->
     <link href="{{ assets('qbackend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ assets('qbackend/assets/css/app.min.css') }}"  rel="stylesheet" type="text/css">
+    <link href="{{ assets('css/style.css') }}"  rel="stylesheet" type="text/css">
 
 </head>
 

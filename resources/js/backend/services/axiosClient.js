@@ -1,5 +1,5 @@
 import axios from 'axios';
-import queryString from 'querystring';
+import queryString from 'query-string';
 import Constant from "../Constant";
 
 const axiosClient = axios.create({

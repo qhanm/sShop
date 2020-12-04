@@ -19,7 +19,10 @@ class CategoryController extends ApiController
 
     public function index(Request $request)
     {
-        return $this->categoryRepository->getAll([], [], $request->toArray());
+        $options = [
+            'sort' => ['name', 'slug', 'description']
+        ];
+        return $this->categoryRepository->getAll([], $options, $request->toArray());
     }
 
     public function show($id)

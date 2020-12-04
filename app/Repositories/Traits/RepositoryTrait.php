@@ -25,7 +25,7 @@ trait RepositoryTrait
         $sortOrder = 'asc';
         if(Str::is('-*', $attribute)){
             $sortOrder = 'desc';
-            $attribute = Str::substr($attribute, 2, strlen($attribute));
+            $attribute = Str::substr($attribute, 1, strlen($attribute));
         }
         return [
             'sortOrder' => $sortOrder,

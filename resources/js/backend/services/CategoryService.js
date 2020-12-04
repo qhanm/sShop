@@ -4,7 +4,7 @@ class CategoryService
 {
     getAll(params) {
         const url = 'category?';
-        return axiosClient.get(url, params);
+        return axiosClient.get(url, { params });
     }
 }
 
