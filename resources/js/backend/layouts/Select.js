@@ -4,13 +4,13 @@ import SelectBase from "react-select";
 function Select(props)
 {
     const { label, error, selected, options, onChange } = props;
-
     return (
         <div className="form-group">
             <label>{ label }</label>
             <div>
                 <SelectBase
-                    value={selected}
+                    defaultValue={selected}
+                    //value={selected}
                     onChange={onChange}
                     options={options}
                 />

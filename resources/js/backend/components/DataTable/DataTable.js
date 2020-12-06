@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import BaseDataTable from "react-data-table-component";
+import React, { useEffect, useState, useRef } from 'react';
+import BaseDataTable, { defaultThemes, createTheme  } from "react-data-table-component";
 import PropTypes from 'prop-types';
-import queryString from 'query-string';
 import SearchInput from "./SearchInput";
 
 DataTable.propTypes = {
@@ -12,15 +11,17 @@ DataTable.propTypes = {
 
 function DataTable(props)
 {
-    const { columns, title, apiService, sortDefault, actionHeader, isSearch, customHeaderComponent } = props;
+    const { columns, title, apiService, sortDefault, isLoading, isSearch, customHeaderComponent, onSelectedRowsChange
+    } = props;
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(isLoading !== undefined ? isLoading : true);
     const [filters, setFilters] = useState({
         per_page: 20,
         page: 1,
         sort: sortDefault.attribute,
         search: "",
-    })
+    });
+    const typingTimeoutRef = useRef(null);
 
     const [pagination, setPagination] = useState({
         total: 0,
@@ -69,7 +70,15 @@ function DataTable(props)
     }
 
     function handleSearch(text) {
-        setFilters({ ...filters, search: text });
+        if(typingTimeoutRef.current){
+            clearTimeout(typingTimeoutRef.current);
+        }
+
+        typingTimeoutRef.current = setTimeout(() => {
+            setFilters({ ...filters, search: text });
+        }, 500);
+
+
     }
 
     const subHeaderComponent = () => {
@@ -106,6 +115,8 @@ function DataTable(props)
             onChangeRowsPerPage={ handleChangeRowPerPage }
             progressPending={ loading }
             subHeaderComponent={ subHeaderComponent() }
+            onSelectedRowsChange={  onSelectedRowsChange }
+            //onRowClicked={ e => { console.log(e) }}
         />
     )
 }

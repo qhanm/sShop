@@ -53,6 +53,8 @@ class Handler extends ExceptionHandler
             }else{
                 echo '<pre>';
                 print_r($e->getMessage());
+                print_r($e->getLine());
+                print_r($e->getFile());
                 die;
             }
 

@@ -6,7 +6,7 @@ function SearchInput(props)
     const [inputSearch, setInputSearch] = useState(search === undefined ? "" : search);
     const onChangeText = (e) => {
         setInputSearch(e.target.value)
-        onChangeSearch(inputSearch)
+        onChangeSearch(e.target.value)
     }
 
     return (

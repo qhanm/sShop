@@ -29,6 +29,10 @@ if(document.getElementById(window.qhnPrefix + 'backend_category_list')){
     require('./backend/components/category/List');
 }
 
+if(document.getElementById(window.qhnPrefix + 'backend_page_category_list')){
+    require('./backend/page/category/CategoryListPage');
+}
+
 if (document.getElementById('example')) {
     require('./components/Example');
 }

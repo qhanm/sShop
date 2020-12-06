@@ -6,6 +6,10 @@ class CategoryService
         const url = 'category?';
         return axiosClient.get(url, { params });
     }
+
+    getAllByParent() {
+        const url = 'category?';
+    }
 }
 
 const categoryService = new CategoryService();

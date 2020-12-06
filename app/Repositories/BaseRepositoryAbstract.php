@@ -16,10 +16,16 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
 	/* @var $resource JsonResource **/
 	protected $resource;
 
+	protected $columns;
+
+	protected $table;
+
 	public function __construct()
 	{
         $this->setModel();
         $this->setResource();
+        $this->table = $this->model->getTable();
+        $this->columns = $this->getColumns($this->table);
 	}
 
 	private function setModel()
@@ -36,27 +42,31 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
 
 	abstract function getResource();
 
-	public function getAll(array $joinWith = [], array $options = [], array $params = [])
+	public function getAll(array $options = [], array $params = [])
 	{
+	    foreach ($options as $key => $option)
+        {
+            if(count(array_diff($option, $this->columns)) !== 0){
+                throw new \Exception("The $key not in columns in table $this->table ");
+            }
+        }
+
         $query = $this->model::query();
 
-        if(count($joinWith)) $query = $query->with($joinWith);
+        if(isset($options['joinWith'])) $query = $query->with($options['joinWith']);
 
-        if(isset($options['select']))
-        {
-            $query->select($options['select']);
-        }
+        //if(count($joinWith)) $query = $query->with($joinWith);
+
+        if(isset($options['select'])) $query->select($options['select']);
 
         if(isset($options['search'])){
             $arrAttribute = $this->parseToArray($options, 'search');
-
             $searchValue = isset($params['search']) ? $params['search'] : '';
 
             if(!empty($searchValue))
             {
-                $query->where(function ($_query) use ($arrAttribute, $searchValue) {
-                    foreach($arrAttribute as $attribute)
-                    {
+                $query = $query->where(function ($_query) use ($arrAttribute, $searchValue) {
+                    foreach($arrAttribute as $attribute) {
                         $_query->orWhere($attribute, 'LIKE', '%' . $searchValue . '%');
                     }
                 });
@@ -70,22 +80,34 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
             $sortAttribute = isset($params['sort']) ? $params['sort'] : '';
             $sortOrder = $this->detectSortOrder($sortAttribute);
 
-            if(!empty($sortAttribute) && in_array($sortOrder['attribute'], $arrSort))
-            {
-
+            if(!empty($sortAttribute) && in_array($sortOrder['attribute'], $arrSort)) {
                 $query->orderBy($sortOrder['attribute'], $sortOrder['sortOrder']);
             }
         }
 
-        $perPage = 10;
-        if(isset($params['per_page']) && $params['per_page'] > 0){
-            $perPage = $params['per_page'];
+        if(isset($options['filter']) && isset($params['filter']) )
+        {
+            $filters = $params['filter'];
+            foreach($filters as $key => $filter) {
+                if(in_array($key, $options['filter']) )
+                {
+                    $arrValue = explode(',', $filter);
+                    if(count($arrValue) > 0){
+                        $query->whereIn($key, $arrValue);
+                    }else{
+                        $query->where($key, implode('', $arrValue));
+                    }
+                }
+            }
+
+
         }
 
+        $perPage = 10;
+        if(isset($params['per_page']) && $params['per_page'] > 0) $perPage = $params['per_page'];
+
         $currentPage = 1;
-        if(isset($params['page']) && $params['page'] > 0){
-            $currentPage = $params['page'];
-        }
+        if(isset($params['page']) && $params['page'] > 0) $currentPage = $params['page'];
 
         $items = $query->paginate($perPage);
         $totalCount = $query->pluck($this->model->getTable() . '.' . $this->model->getKeyName())->count();

@@ -8,18 +8,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div id="{{ config('backend.reactjs.prefixElement') }}backend_category_form"></div>
-        </div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <div id="{{ config('backend.reactjs.prefixElement') }}backend_category_list"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="{{ config('backend.reactjs.prefixElement') }}backend_page_category_list"></div>
 @endsection
 
 @section('script-footer-end')

@@ -32,4 +32,9 @@ trait RepositoryTrait
             'attribute' => $attribute,
         ];
     }
+
+    public function getColumns(string $table)
+    {
+        return \Schema::getColumnListing($table);
+    }
 }

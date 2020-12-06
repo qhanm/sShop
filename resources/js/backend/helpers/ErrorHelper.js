@@ -1,4 +1,3 @@
-"use strict";
 function getError(arrError, attribute)
 {
 	let result = null;

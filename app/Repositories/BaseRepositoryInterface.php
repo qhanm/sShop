@@ -3,7 +3,7 @@ namespace App\Repositories;
 
 interface BaseRepositoryInterface
 {
-	public function getAll(array $joinWith = [], array $options = [], array $params = []);
+	public function getAll(array $options = [], array $params = []);
 
 	public function getOne($id, array $joinWith = []);
 
