@@ -35,3 +35,13 @@
 .qhn-select2-bulk-action>div>div{
     border-radius: 0;
 }
+
+.notifications-component {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 9000;
+    pointer-events: none;
+    width: 1200px;
+    height: 100%;
+}

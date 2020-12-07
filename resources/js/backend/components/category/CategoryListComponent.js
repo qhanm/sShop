@@ -1,20 +1,23 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ReactDOM from "react-dom";
 import DataTable from "react-data-table-component";
 import categoryService from "../../services/CategoryService";
 import SearchInput from "../DataTable/SearchInput";
 import BulkAction from "../DataTable/BulkAction";
 import uuid from 'react-uuid';
-import ColumnList from '../category/CategoryColumnListComponent';
-function CategoryListComponent()
+import CustomAction from "../DataTable/CustomAction";
+import Loading from '../../layouts/Loadding';
+
+function CategoryListComponent(props)
 {
+    const { handleOnClickEdit } = props
+
     const typingTimeoutRef = useRef(null);
     const [loading, setLoading] = useState(true);
     const [bulkAction, setBulkAction] = useState([]);
     const [data, setData] = useState([]);
     const [search, setSearch] = useState("");
     const [filters, setFilters] = useState({
-        per_page: 20,
+        per_page: 2,
         page: 1,
         sort: "name",
         search: "",
@@ -31,7 +34,6 @@ function CategoryListComponent()
             <div>
                 <BulkAction key={ uuid() }/>
                 <SearchInput key={uuid()} search={search} onChangeSearch={ handleSearch }/>
-
             </div>
         )
     }
@@ -99,22 +101,49 @@ function CategoryListComponent()
 
     }
 
+    const columns = [
+        {
+            name: 'Name',
+            selector: 'name',
+            sortable: true,
+        },
+        {
+            name: 'Slug',
+            selector: 'slug',
+            sortable: true,
+        },
+        {
+            name: 'Description',
+            selector: 'description',
+            sortable: true,
+            right: true,
+        },
+        {
+            cell: row =>  <CustomAction row={row} handleOnClickEdit={ handleOnClickEdit }/> ,
+            allowOverflow: true,
+            button: true,
+            width: '56px',
+        },
+    ]
+
     return(
-        <div className="card">
+        <div className={ "card" + (loading === true ? parent-loading : "") }>
+            {
+                loading === true ? <Loading /> : null
+            }
             <div className="card-body">
                 <DataTable
                     title="Category List"
-                    columns={ ColumnList }
+                    columns={ columns }
                     data={ data }
                     onSort={ handleSort }
                     sortServer={true}
                     selectableRows={true}
                     apiService={ categoryService }
                     sortDefault={ {attribute: 'name'} }
-                    isSearch={true}
+                    persistTableHead // show table head
                     subHeaderComponent={ handleHeaderComponent() }
                     onSelectedRowsChange={ handleSelectRowsChange }
-                    isLoading={ loading }
                     pagination
                     paginationServer
                     paginationTotalRows={ pagination.total }
@@ -122,8 +151,10 @@ function CategoryListComponent()
                     paginationDefaultPage={ pagination.current_page }
                     onChangePage={ handleChangePage }
                     onChangeRowsPerPage={ handleChangeRowPerPage }
-                    progressPending={ loading }
                     subHeader
+                    paginationComponentOptions={
+                        { rowsPerPageText: 'Rows per page:', rangeSeparatorText: 'of', noRowsPerPage: true, selectAllRowsItem: false, selectAllRowsItemText: 'All' }
+                    }
                 />
             </div>
         </div>

@@ -5,6 +5,7 @@ use App\Components\ApiController;
 use App\Models\Category;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Requests\Api\CategoryRequest;
 
 class CategoryController extends ApiController
 {
@@ -30,5 +31,10 @@ class CategoryController extends ApiController
     public function show($id)
     {
         return $this->categoryRepository->getOne($id);
+    }
+
+    public function store(CategoryRequest $request)
+    {
+        return $this->categoryRepository->create($request->toArray());
     }
 }

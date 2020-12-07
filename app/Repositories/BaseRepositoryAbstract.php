@@ -129,7 +129,11 @@ abstract class BaseRepositoryAbstract implements BaseRepositoryInterface
 
 	public function create(array $data , array $joinWith = [])
 	{
+        $model = new $this->model();
+        $model->fill($data);
+        $model->save();
 
+        return $this->getOne($model->{$model->getKeyName()}, $joinWith);
 	}
 
 	public function delete($id)

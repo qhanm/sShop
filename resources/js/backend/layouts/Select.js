@@ -10,7 +10,7 @@ function Select(props)
             <div>
                 <SelectBase
                     defaultValue={selected}
-                    //value={selected}
+                    value={selected}
                     onChange={onChange}
                     options={options}
                 />

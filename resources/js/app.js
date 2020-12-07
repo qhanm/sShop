@@ -18,15 +18,15 @@ window.qhnPrefix = 'qhn6396_';
 require('./backend/layouts');
 
 if(document.getElementById(window.qhnPrefix + 'backend_login')){
-    require('./backend/components/auth/Login');
+    //require('./backend/components/auth/Login');
 }
 
 if(document.getElementById(window.qhnPrefix + 'backend_category_form')){
-    require('./backend/components/category/Form');
+    //require('./backend/components/category/Form');
 }
 
 if(document.getElementById(window.qhnPrefix + 'backend_category_list')){
-    require('./backend/components/category/List');
+    //require('./backend/components/category/List');
 }
 
 if(document.getElementById(window.qhnPrefix + 'backend_page_category_list')){

@@ -1,13 +1,17 @@
 import React from 'react';
 
 function Button(props) {
+
+    const { type, className, id, name, handleClick } = props;
+
     return (
         <button
-            type={ props.type }
-            className={ "btn waves-effect waves-light " + (props.className !== undefined ? props.className : '')}
-            id={props.id}
+            onClick={ handleClick }
+            type={ type === undefined ? 'button' : type }
+            className={ "btn waves-effect waves-light " + (className !== undefined ? className : '')}
+            id={id}
         >
-            { props.name }
+            { name }
         </button>
     )
 }

@@ -4,7 +4,10 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const CustomAction = ({ row, onDeleteRow, size, customActionComponent }) => {
+const CustomAction = (props) => {
+
+    const { row, onDeleteRow, size, handleOnClickEdit } = props;
+
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = event => {
@@ -19,6 +22,10 @@ const CustomAction = ({ row, onDeleteRow, size, customActionComponent }) => {
             onDeleteRow(row);
         }
     };
+
+    const onClickEdit = (event) => {
+        handleOnClickEdit(row);
+    }
 
     return (
         <div>
@@ -47,7 +54,7 @@ const CustomAction = ({ row, onDeleteRow, size, customActionComponent }) => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem>
+                <MenuItem onClick={ onClickEdit }>
                     <i className="mdi mdi-pencil font-size-16 text-success mr-1">
                     </i> Edit
                 </MenuItem>
@@ -56,7 +63,6 @@ const CustomAction = ({ row, onDeleteRow, size, customActionComponent }) => {
                     <i className="mdi mdi-trash-can font-size-16 text-danger mr-1">
                     </i> Delete
                 </MenuItem>
-                {/*{ customActionComponent }*/}
             </Menu>
         </div>
     );
